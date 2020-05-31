@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
 
         write(new_socket, message, strlen(message));
     }
+    
     if (new_socket < 0)
     {
         printf("Erro ao aceitar conexão!\n");
