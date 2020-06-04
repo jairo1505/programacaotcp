@@ -51,11 +51,20 @@ int main(int argc, char *argv[])
                 printf("Falha no recv\n");
                 return 1;
             }
-            printf("Resposta recebida.\n");
+            printf("Resposta recebida:");
             printf("%s\n", client_reply);
 
             /* resposta ao cliente */
-            message = "Olá Cliente! Recebi sua conexão, mas preciso ir agora! Tchau!";
+            /* limpa a variável com a mensagem */
+            bzero(message, sizeof(message));
+
+            printf("Digite uma mensagem:");
+            int ch, n = 0;
+            /* lê a entrada de dados do usuário via getchar */
+            while ((ch = getchar()) != '\n' && n < 2000) {
+                message[n] = ch;
+                ++n;
+            }
             write(new_socket, message, strlen(message));
         } while(strcmp(client_reply, "exit") != 0);
     }

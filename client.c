@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             printf("Falha no recv\n");
             return 1;
         }
-        printf("Resposta recebida.\n");
+        printf("Resposta recebida:");
         printf("%s\n", server_reply);
 
         /* limpa a variável de resposta */
